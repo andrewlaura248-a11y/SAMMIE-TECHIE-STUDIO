@@ -41,15 +41,24 @@ export const CONTACT = {
   },
 };
 
+import portrait from '../assets/images/sammie_studio_portrait_1792080145090.jpg';
+import heroWorkspace from '../assets/images/hero_ecommerce_studio_1792080142796.jpg';
+import shopifyFashion from '../assets/images/showcase_shopify_fashion_1792080143612.jpg';
+import digitalCreator from '../assets/images/showcase_digital_creator_1792080145113.jpg';
+import funnelAnalytics from '../assets/images/showcase_funnel_analytics_1792080145257.jpg';
+import artisanDecor from '../assets/images/showcase_artisan_decor_1792080415326.jpg';
+import fitnessGear from '../assets/images/showcase_fitness_gear_1792080415744.jpg';
+
 export const ASSETS = {
-  portrait: "/src/assets/images/sammie_studio_portrait_1792080145090.jpg",
-  heroWorkspace: "/src/assets/images/hero_ecommerce_studio_1792080142796.jpg",
-  shopifyFashion: "/src/assets/images/showcase_shopify_fashion_1792080143612.jpg",
-  digitalCreator: "/src/assets/images/showcase_digital_creator_1792080145113.jpg",
-  funnelAnalytics: "/src/assets/images/showcase_funnel_analytics_1792080145257.jpg",
-  artisanDecor: "/src/assets/images/showcase_artisan_decor_1792080415326.jpg",
-  fitnessGear: "/src/assets/images/showcase_fitness_gear_1792080415744.jpg",
+  portrait,
+  heroWorkspace,
+  shopifyFashion,
+  digitalCreator,
+  funnelAnalytics,
+  artisanDecor,
+  fitnessGear,
 };
+
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
