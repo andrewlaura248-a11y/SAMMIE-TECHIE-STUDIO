@@ -41,7 +41,7 @@ export const CONTACT = {
   },
 };
 
-import portrait from '../assets/images/sammie_studio_portrait_1792080145090.jpg';
+import portrait from '../assets/images/sammie_new_portrait.jpg';
 import heroWorkspace from '../assets/images/hero_ecommerce_studio_1792080142796.jpg';
 import shopifyFashion from '../assets/images/showcase_shopify_fashion_1792080143612.jpg';
 import digitalCreator from '../assets/images/showcase_digital_creator_1792080145113.jpg';
