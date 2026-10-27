@@ -212,8 +212,14 @@ Looking forward to hearing from you!`;
                 Fill out the details below. Submitting will prepare a formatted WhatsApp message with your project scope for immediate discussion.
               </p>
 
-              <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-                {/* Full Name & Email */}
+<form
+  name="project-inquiry"
+  onSubmit={handleSubmit}
+  className="space-y-5"
+  noValidate
+>
+  <input type="hidden" name="form-name" value="project-inquiry" />
+  <input type="hidden" name="bot-field" value="" />                {/* Full Name & Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="inquiry-fullname" className="block text-xs font-bold uppercase tracking-wider text-[#F5F7FB] mb-1.5">
@@ -221,6 +227,7 @@ Looking forward to hearing from you!`;
                     </label>
                     <input
                       id="inquiry-fullname"
+                      name="fullName"
                       type="text"
                       value={fullName}
                       onChange={(e) => {
@@ -243,6 +250,7 @@ Looking forward to hearing from you!`;
                     </label>
                     <input
                       id="inquiry-email"
+                      name="email"
                       type="email"
                       value={email}
                       onChange={(e) => {
@@ -267,6 +275,7 @@ Looking forward to hearing from you!`;
                   </label>
                   <select
                     id="inquiry-service"
+                    name="service"
                     value={service}
                     onChange={(e) => setService(e.target.value)}
                     className="w-full px-4 py-3 rounded-xl bg-[#070D1B] border border-[#26354B] text-sm text-[#F5F7FB] focus:outline-none focus:border-[#FF762B] transition-colors"
@@ -287,6 +296,7 @@ Looking forward to hearing from you!`;
                     </label>
                     <select
                       id="inquiry-budget"
+                      name="budget"
                       value={budget}
                       onChange={(e) => setBudget(e.target.value)}
                       className="w-full px-4 py-3 rounded-xl bg-[#070D1B] border border-[#26354B] text-sm text-[#F5F7FB] focus:outline-none focus:border-[#FF762B] transition-colors"
@@ -305,6 +315,7 @@ Looking forward to hearing from you!`;
                     </label>
                     <select
                       id="inquiry-timeline"
+                      name="timeline"
                       value={timeline}
                       onChange={(e) => setTimeline(e.target.value)}
                       className="w-full px-4 py-3 rounded-xl bg-[#070D1B] border border-[#26354B] text-sm text-[#F5F7FB] focus:outline-none focus:border-[#FF762B] transition-colors"
@@ -325,6 +336,7 @@ Looking forward to hearing from you!`;
                   </label>
                   <textarea
                     id="inquiry-description"
+                    name="description"
                     rows={4}
                     value={description}
                     onChange={(e) => {
