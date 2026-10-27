@@ -69,15 +69,39 @@ export default function ContactSection() {
     return Object.keys(errs).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!validate()) {
       return;
     }
 
-    // Construct cleanly formatted WhatsApp message
-    const inquiryMessage = `Hi Sammie! I submitted an inquiry through your portfolio website.
+    const formData = new FormData(e.currentTarget);
+    formData.set('form-name', 'project-inquiry');
+
+    // Open a tab now so the browser doesn't block WhatsApp later.
+    const whatsappTab = window.open('about:blank', '_blank');
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(
+          Array.from(formData.entries()).map(([key, value]) => [
+            key,
+            String(value),
+          ])
+        ).toString(),
+      });
+
+      if (!response.ok) {
+        throw new Error('The inquiry could not be submitted.');
+      }
+
+      const inquiryMessage = `Hi Sammie! I submitted an inquiry through your portfolio website.
 
 Full Name: ${fullName.trim()}
 Email: ${email.trim()}
@@ -90,11 +114,25 @@ ${description.trim()}
 
 Looking forward to hearing from you!`;
 
-    const waUrl = buildWhatsAppUrl(inquiryMessage);
-    setIsSuccess(true);
+      const waUrl = buildWhatsAppUrl(inquiryMessage);
 
-    // Open WhatsApp in new tab
-    window.open(waUrl, '_blank', 'noopener,noreferrer');
+      setIsSuccess(true);
+
+      if (whatsappTab) {
+        whatsappTab.location.href = waUrl;
+      } else {
+        window.location.href = waUrl;
+      }
+    } catch (error) {
+      if (whatsappTab) {
+        whatsappTab.close();
+      }
+
+      setIsSuccess(false);
+      alert(
+        'Your inquiry could not be submitted. Please try again or contact me through WhatsApp.'
+      );
+    }
   };
 
   return (
