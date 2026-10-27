@@ -84,8 +84,8 @@ export default function ContactSection() {
     const whatsappTab = window.open('about:blank', '_blank');
 
     try {
-      const response = await fetch('/', {
-        method: 'POST',
+const response = await fetch('/forms.html', {
+  method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
